@@ -53,7 +53,6 @@
   }
 }
 
-/* Cement / paper texture */
 .bg-cement-grain {
   background-color: var(--cement);
   background-image:
@@ -63,7 +62,6 @@
   background-position: 0 0, 9px 4px;
 }
 
-/* Stamped button */
 @utility btn-stamp {
   display: inline-flex;
   align-items: center;
@@ -78,11 +76,10 @@
   border: 3px solid var(--stencil);
   box-shadow: 5px 5px 0 var(--stencil);
   transform: rotate(-1deg);
-  transition: transform 120ms ease, box-shadow 120ms ease;
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
   cursor: pointer;
   text-transform: uppercase;
-}
-@utility btn-stamp {
+  text-decoration: none;
   &:hover {
     transform: rotate(-2deg) translate(-1px, -1px);
     box-shadow: 7px 7px 0 var(--stencil);
@@ -112,8 +109,7 @@
   transition: transform 120ms ease, box-shadow 120ms ease;
   cursor: pointer;
   text-transform: uppercase;
-}
-@utility btn-stamp-outline {
+  text-decoration: none;
   &:hover {
     transform: rotate(2deg) translate(-1px, -1px);
     box-shadow: 7px 7px 0 var(--stencil);
@@ -124,7 +120,6 @@
   }
 }
 
-/* Stencil/spray section heading */
 @utility heading-stencil {
   font-family: var(--font-stencil);
   text-transform: uppercase;
@@ -133,47 +128,12 @@
   text-shadow: 3px 3px 0 var(--net-orange);
 }
 
-/* Torn paper edge (bottom) */
-@utility edge-torn-b {
-  position: relative;
-}
-@utility edge-torn-b {
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: -14px;
-    height: 16px;
-    background: inherit;
-    -webkit-mask: radial-gradient(10px 14px at 10px 0, transparent 98%, #000 100%) 0 0/22px 16px;
-    mask: radial-gradient(10px 14px at 10px 0, transparent 98%, #000 100%) 0 0/22px 16px;
-  }
-}
-
-/* Tape corner */
-@utility tape {
-  position: relative;
-}
-@utility tape {
-  &::before {
-    content: "";
-    position: absolute;
-    top: -10px; left: 50%;
-    width: 70px; height: 20px;
-    background: rgba(242, 153, 46, 0.7);
-    transform: translateX(-50%) rotate(-3deg);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  }
-}
-
-/* Ticket stub */
 @utility ticket-stub {
   position: relative;
   background: var(--cement);
   border: 2.5px solid var(--stencil);
   padding: 1.25rem 1rem;
   box-shadow: 4px 4px 0 var(--stencil);
-}
-@utility ticket-stub {
   &::before, &::after {
     content: "";
     position: absolute;
@@ -188,7 +148,6 @@
   &::after { right: -11px; }
 }
 
-/* Diagonal ink stamp */
 @utility ink-stamp {
   display: inline-block;
   font-family: var(--font-stencil);
@@ -204,4 +163,32 @@
 @utility hand-note {
   font-family: var(--font-marker);
   color: var(--ball-red);
+}
+
+@utility tape-corner {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px; left: 50%;
+    width: 70px; height: 20px;
+    background: rgba(242, 153, 46, 0.75);
+    transform: translateX(-50%) rotate(-3deg);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+}
+
+@utility placeholder-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    repeating-linear-gradient(45deg, rgba(27,27,27,0.04) 0 10px, transparent 10px 20px),
+    var(--muted);
+  border: 2.5px dashed var(--stencil);
+  color: var(--stencil);
+  font-family: var(--font-marker);
+  font-size: 1rem;
+  padding: 1rem;
 }
